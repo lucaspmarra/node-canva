@@ -104,7 +104,7 @@ app.get('/list', (req, res) => {
     const filenames = fs.readdirSync(imagesFolder);
 
     // Send the list of filenames as a JSON response
-    res.json({ files: `/download/${filenames}` });
+    res.json({ endpoint: '/download/:filename', files: `${filenames}` });
   } catch (error) {
     console.error('Error listing files:', error.message);
     res.status(500).json({ error: 'Failed to list files' });

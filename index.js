@@ -25,7 +25,8 @@ app.get('/', (req, res) => {
 app.post('/generate', async (req, res) => {
   try {
     // Fetch data from the API (assuming client sends data in the request body)
-    const { backgroundImageUrl, value1, value2, value3, value4 } = req.body;
+    // const { backgroundImageUrl, value1, value2, value3, value4 } = req.body;
+    const { backgroundImageUrl, value1, value2, value3, value4, value5, value6, value7, value8, value9, value10, value11 } = req.body;
 
     // Load the background image from the provided URL
     const baseImage = await loadImage(backgroundImageUrl);
@@ -38,21 +39,36 @@ app.post('/generate', async (req, res) => {
     ctx.drawImage(baseImage, 0, 0);
 
     // Render data on the canvas with different styles for each text
-    ctx.fillStyle = 'black';
-    ctx.font = '20px Arial';
-    ctx.fillText(`${value1}`, 80, 340);
+    /*  ctx.fillStyle = 'black';
+     ctx.font = '20px Arial';
+     ctx.fillText(`${value1}`, 80, 340);
+ 
+     ctx.fillStyle = 'black';
+     ctx.font = '20px Arial';
+     ctx.fillText(`${value2}`, 80 * 5, 340);
+ 
+     ctx.fillStyle = 'black';
+     ctx.font = '20px Arial';
+     ctx.fillText(`${value3}`, 80 * 5, 550);
+ 
+     ctx.fillStyle = 'black';
+     ctx.font = '20px Arial';
+     ctx.fillText(`${value4}`, 80, 550); */
 
     ctx.fillStyle = 'black';
     ctx.font = '20px Arial';
-    ctx.fillText(`${value2}`, 80 * 5, 340);
-
-    ctx.fillStyle = 'black';
-    ctx.font = '20px Arial';
-    ctx.fillText(`${value3}`, 80 * 5, 550);
-
-    ctx.fillStyle = 'black';
-    ctx.font = '20px Arial';
-    ctx.fillText(`${value4}`, 80, 550);
+    ctx.fillText(`${value1}`, 67, 31);
+    ctx.fillText(`${value2}`, 145, 40);
+    ctx.fillText(`${value3}`, 294, 40);
+    ctx.fillText(`${value4}`, 294, 37);
+    ctx.fillText(`${value5}`, 102, 335);
+    ctx.fillText(`${value6}`, 199, 371);
+    ctx.fillText(`${value7}`, 410, 334);
+    ctx.fillText(`${value8}`, 529, 372);
+    ctx.fillText(`${value9}`, 92, 541);
+    ctx.fillText(`${value10}`, 220, 582);
+    ctx.fillText(`${value11}`, 411, 538);
+    ctx.fillText(`${value11}`, 513, 582);
 
     // Generate a unique filename for the image
     const filename = `generated_image_${Date.now()}.png`;

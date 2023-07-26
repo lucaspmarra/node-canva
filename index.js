@@ -10,6 +10,17 @@ const port = 3000 || process.env.PORT;
 // Middleware to parse JSON body (if needed)
 app.use(express.json());
 
+// Root endpoint to show all available endpoints
+app.get('/', (req, res) => {
+  const endpoints = [
+    { path: '/generate', method: 'POST', description: 'Generate an image with customized text.', bodyParams: ['backgroundImageUrl', 'value1', 'value2', 'value3', 'value4'] },
+    { path: '/download/:filename', method: 'GET', description: 'Download a generated image by filename.' },
+    { path: '/list', method: 'GET', description: 'List all generated image files.' },
+  ];
+
+  res.json({ endpoints });
+});
+
 // Define the image generation route
 app.post('/generate', async (req, res) => {
   try {

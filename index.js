@@ -13,7 +13,11 @@ app.use(express.json());
 // Root endpoint to show all available endpoints
 app.get('/', (req, res) => {
   const endpoints = [
-    { path: '/generate', method: 'POST', description: 'Generate an image with customized text.', bodyParams: ['backgroundImageUrl', 'value1', 'value2', 'value3', 'value4'] },
+    {
+      path: '/generate', method: 'POST',
+      description: 'Generate an image with customized text.',
+      bodyParams: ['backgroundImageUrl', 'value1', 'value2', 'value3', 'value4', 'value5', 'value6', 'value7', 'value8', 'value9', 'value10', 'value11']
+    },
     { path: '/download/:filename', method: 'GET', description: 'Download a generated image by filename.' },
     { path: '/list', method: 'GET', description: 'List all generated image files.' },
   ];
@@ -57,18 +61,17 @@ app.post('/generate', async (req, res) => {
 
     ctx.fillStyle = 'black';
     ctx.font = '20px Arial';
-    ctx.fillText(`${value1}`, 67, 31);
-    ctx.fillText(`${value2}`, 145, 40);
-    ctx.fillText(`${value3}`, 294, 40);
-    ctx.fillText(`${value4}`, 294, 37);
-    ctx.fillText(`${value5}`, 102, 335);
-    ctx.fillText(`${value6}`, 199, 371);
-    ctx.fillText(`${value7}`, 410, 334);
-    ctx.fillText(`${value8}`, 529, 372);
-    ctx.fillText(`${value9}`, 92, 541);
-    ctx.fillText(`${value10}`, 220, 582);
-    ctx.fillText(`${value11}`, 411, 538);
-    ctx.fillText(`${value11}`, 513, 582);
+    ctx.fillText(`${value1}`, 65, 50); // header
+    ctx.fillText(`${value2}`, 150, 50); // header
+    ctx.fillText(`${value3}`, 250, 50); // header
+    ctx.fillText(`${value4}`, 100, 340); // 4 e 6
+    ctx.fillText(`${value5}`, 200, 380); // 5 e 7
+    ctx.fillText(`${value6}`, 410, 340); // 4 e 6
+    ctx.fillText(`${value7}`, 530, 380); // 5 e 7
+    ctx.fillText(`${value8}`, 100, 540); // 8 e 10
+    ctx.fillText(`${value9}`, 220, 600); // 9 e 11
+    ctx.fillText(`${value10}`, 410, 540); // 8 e 10
+    ctx.fillText(`${value11}`, 530, 600); // 9 e 11
 
     // Generate a unique filename for the image
     const filename = `generated_image_${Date.now()}.png`;

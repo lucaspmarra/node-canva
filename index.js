@@ -2,7 +2,6 @@ const express = require('express');
 const { createCanvas, loadImage } = require('canvas');
 const fs = require('fs');
 const path = require('path');
-
 const app = express();
 const port = 3000 || process.env.PORT;
 
